@@ -1,0 +1,39 @@
+/* ─────────────────────────────────
+   À PROPOS
+───────────────────────────────── */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+.about-bio p {
+  color: var(--ink-soft);
+  font-weight: 300;
+  line-height: 1.85;
+}
+
+.about-bio p + p {
+  margin-top: 1rem;
+}
+
+.about-details dt {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 1.4rem;
+}
+
+.about-details dd {
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin-top: 0.2rem;
+}
+
+.about-details a {
+  color: inherit;
+}

@@ -1,0 +1,125 @@
+/* ─────────────────────────────────
+   VARIABLES GLOBALES
+───────────────────────────────── */
+
+:root {
+  /* Couleurs principales */
+  --ink: #1a1a18;
+  --ink-soft: #5a5a54;
+  --ink-faint: #9a9a92;
+  --bg: #faf9f7;
+  --bg-alt: #f2f0ec;
+  --line: #e2e0da;
+
+  /* Polices */
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+
+  /* Dimensions */
+  --max: 760px;
+
+  /* Catégories de couleurs */
+  --c-secu: #1a6b5e;
+  --c-secu-bg: #e8f5f2;
+  --c-secu-dot: #2a9d8f;
+
+  --c-dev: #5c3d8f;
+  --c-dev-bg: #f0eaf8;
+  --c-dev-dot: #7c5cbf;
+
+  --c-sys: #b45309;
+  --c-sys-bg: #fef3c7;
+  --c-sys-dot: #d97706;
+
+  --c-edu: #1d4ed8;
+  --c-edu-bg: #eff6ff;
+  --c-edu-dot: #3b82f6;
+
+  --c-soft: #9d174d;
+  --c-soft-bg: #fdf2f8;
+  --c-soft-dot: #ec4899;
+}
+
+/* ─────────────────────────────────
+   RESET ET BASE
+───────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─────────────────────────────────
+   UTILITIES
+───────────────────────────────── */
+
+section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--line);
+}
+
+.section-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+/* ─────────────────────────────────
+   PAGES
+───────────────────────────────── */
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* ─────────────────────────────────
+   ANIMATIONS
+───────────────────────────────── */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

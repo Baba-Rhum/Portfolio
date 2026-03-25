@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elouan Thébault — Cybersécurité</title>
+  
+  <!-- Polices Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  
+  <!-- Fichiers CSS modulaires -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link rel="stylesheet" href="css/skills.css" />
+  <link rel="stylesheet" href="css/timeline.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav>
+    <a href="#" class="nav-logo" onclick="showPage('main');return false">Elouan Thébault</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#about" onclick="showPage('main')" data-i="nav_about">À propos</a></li>
+        <li><a href="#projets" onclick="showPage('main')" data-i="nav_projects">Projets</a></li>
+        <li><a href="#competences" onclick="showPage('main')" data-i="nav_skills">Compétences</a></li>
+        <li><a href="#timeline" onclick="showPage('main')" data-i="nav_timeline">Timeline</a></li>
+        <li><a href="#contact" onclick="showPage('main')">Contact</a></li>
+      </ul>
+      <div class="lang-switch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       PAGE PRINCIPALE
+  ═══════════════════════════════════════════ -->
+  <div id="page-main" class="page active">
+
+    <!-- HERO -->
+    <section id="hero">
+      <p class="hero-label" data-i="hero_label">Portfolio · Cybersécurité · 2025</p>
+      <h1 class="hero-title">Elouan Thébault<br><em data-i="hero_subtitle">Étudiant ingénieur</em></h1>
+      <p class="hero-sub" data-i="hero_sub">Spécialisation cybersécurité à l'ESIEA Laval. Je conçois des systèmes sécurisés, de l'embarqué au web — et je cherche une alternance pour 2026–2027.</p>
+      <div class="hero-tags">
+        <a class="hero-tag skill-cat-btn-trigger" href="#competences" data-cat="secu" onclick="showPage('main');setTimeout(()=>openSkillCat('secu'),400);return false" data-i="tag_secu">Cybersécurité</a>
+        <a class="hero-tag skill-cat-btn-trigger" href="#competences" data-cat="sys" onclick="showPage('main');setTimeout(()=>openSkillCat('sys'),400);return false" data-i="tag_sys">Systèmes embarqués</a>
+        <a class="hero-tag skill-cat-btn-trigger" href="#competences" data-cat="secu" onclick="showPage('main');setTimeout(()=>openSkillCat('secu'),400);return false" data-i="tag_crypto">Cryptographie</a>
+        <a class="hero-tag skill-cat-btn-trigger" href="#competences" data-cat="dev" onclick="showPage('main');setTimeout(()=>openSkillCat('dev'),400);return false">Python · C/C++ · Node.js</a>
+        <a class="hero-tag skill-cat-btn-trigger" href="#competences" data-cat="edu" onclick="showPage('main');setTimeout(()=>openSkillCat('edu'),400);return false">TOEIC 850</a>
+      </div>
+      <a href="#projets" class="hero-cta" data-i="hero_cta">Voir mes projets ↓</a>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- À PROPOS -->
+    <section id="about">
+      <p class="section-eyebrow" data-i="about_eyebrow">01 — À propos</p>
+      <h2 class="section-title" data-i="about_title">Qui suis-je ?</h2>
+      <div class="about-grid fade-up">
+        <div class="about-bio">
+          <p data-i="about_p1">Étudiant en 2e année du cycle ingénieur à l'ESIEA Laval, je me spécialise en cybersécurité. Mon parcours mêle fondamentaux théoriques — cryptographie, protocoles, PKI — et réalisations concrètes, notamment un système de contrôle d'accès RFID développé seul de A à Z.</p>
+          <p data-i="about_p2">À l'aise aussi bien sur des projets bas niveau (C/C++, embarqué) que sur du développement web (Node.js, HTML/CSS), je m'intéresse en particulier à la sécurité applicative et à la sensibilisation des publics non techniques.</p>
+          <p data-i="about_p3">Je recherche une alternance en cybersécurité pour la rentrée 2026–2027, où je pourrai approfondir mes compétences en conditions réelles.</p>
+        </div>
+        <dl class="about-details">
+          <dt data-i="about_school_label">Formation</dt><dd>ESIEA — École d'ingénieurs du numérique, Laval</dd>
+          <dt data-i="about_status_label">Statut</dt><dd data-i="about_status_val">En recherche d'alternance · Rentrée 2026–2027</dd>
+          <dt data-i="about_english_label">Anglais</dt><dd>TOEIC 850/990 — <span data-i="about_english_level">niveau professionnel</span></dd>
+          <dt data-i="about_location_label">Localisation</dt><dd data-i="about_location_val">France · Permis B + véhicule</dd>
+          <dt>Email</dt><dd><a href="mailto:elouan.thebault@esiea.fr">elouan.thebault@esiea.fr</a></dd>
+          <dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/elouan-thebault" target="_blank">linkedin.com/in/elouan-thebault</a></dd>
+        </dl>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- PROJETS -->
+    <div id="projets" style="background:var(--bg-alt)">
+      <div class="projets-inner">
+        <p class="section-eyebrow" data-i="projects_eyebrow">02 — Projets</p>
+        <h2 class="section-title" data-i="projects_title">Réalisations</h2>
+        <div class="projets-grid fade-up">
+
+          <a class="projet-card" onclick="openProject('rfid');return false" href="#">
+            <span class="projet-num">01</span>
+            <div>
+              <p class="projet-title"><span data-i="p1_title">Contrôle d'accès RFID embarqué</span><span class="projet-highlight" data-i="p1_badge">Projet phare</span></p>
+              <p class="projet-desc" data-i="p1_desc_short">Système embarqué complet sur ESP32 — de l'électronique à l'interface web d'administration. Réalisé seul.</p>
+            </div>
+            <span class="projet-arrow">→</span>
+          </a>
+
+          <a class="projet-card" onclick="openProject('discord');return false" href="#">
+            <span class="projet-num">02</span>
+            <div>
+              <p class="projet-title" data-i="p2_title">Bot Discord — Architecture événementielle</p>
+              <p class="projet-desc" data-i="p2_desc_short">Bot Node.js structuré avec chargement dynamique, logs applicatifs et aide auto-générée.</p>
+            </div>
+            <span class="projet-arrow">→</span>
+          </a>
+
+          <a class="projet-card" onclick="openProject('jeu');return false" href="#">
+            <span class="projet-num">03</span>
+            <div>
+              <p class="projet-title" data-i="p3_title">Jeu vidéo 2D en C</p>
+              <p class="projet-desc" data-i="p3_desc_short">Gameplay complet, sprites, génération procédurale et son — développé en C lors d'un partiel contraint.</p>
+            </div>
+            <span class="projet-arrow">→</span>
+          </a>
+
+          <a class="projet-card" onclick="openProject('pairse_mbot');return false" href="#">
+            <span class="projet-num">04</span>
+            <div>
+              <p class="projet-title" data-i="p4_title">PAIRSE — Intervention en collège</p>
+              <p class="projet-desc" data-i="p4_desc_short">Chef de groupe, vulgarisation de la cybersécurité et de la cryptographie pour des collégiens.</p>
+            </div>
+            <span class="projet-arrow">→</span>
+          </a>
+
+          <a class="projet-card" onclick="openProject('pairse_expo');return false" href="#">
+            <span class="projet-num">05</span>
+            <div>
+              <p class="projet-title" data-i="p5_title">PAIRSE — Exposciences 53</p>
+              <p class="projet-desc" data-i="p5_desc_short">Coordinateur d'équipe, gestion des partenaires et communication scientifique.</p>
+            </div>
+            <span class="projet-arrow">→</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES -->
+    <section id="competences">
+      <p class="section-eyebrow" data-i="skills_eyebrow">03 — Compétences</p>
+      <h2 class="section-title" data-i="skills_title">Savoir-faire technique</h2>
+      <p style="color:var(--ink-soft);font-weight:300;font-size:.9rem;margin-bottom:1.5rem" data-i="skills_intro">Clique sur une catégorie pour explorer les compétences.</p>
+
+      <div class="skills-categories">
+        <button class="skill-cat-btn secu" onclick="toggleSkillCat('secu')"><span class="dot"></span><span data-i="skills_security">Sécurité & Cryptographie</span></button>
+        <button class="skill-cat-btn dev" onclick="toggleSkillCat('dev')"><span class="dot"></span><span data-i="skills_dev">Développement</span></button>
+        <button class="skill-cat-btn sys" onclick="toggleSkillCat('sys')"><span class="dot"></span><span data-i="skills_sys">Systèmes & Réseaux</span></button>
+        <button class="skill-cat-btn edu" onclick="toggleSkillCat('edu')"><span class="dot"></span><span data-i="skills_edu">Langues</span></button>
+        <button class="skill-cat-btn soft" onclick="toggleSkillCat('soft')"><span class="dot"></span><span data-i="skills_soft">Soft skills</span></button>
+      </div>
+
+      <div id="skill-secu" class="skills-section secu">
+        <h3 data-i="skills_security">Sécurité & Cryptographie</h3>
+        <div class="skills-grid">
+          <span class="skill-pill">TLS / HTTPS</span>
+          <span class="skill-pill">PKI / X.509</span>
+          <span class="skill-pill">Certificats</span>
+          <span class="skill-pill">Chiffrement symétrique & asymétrique</span>
+          <span class="skill-pill">CTF</span>
+          <span class="skill-pill">Contrôle d'accès</span>
+          <span class="skill-pill">Authentification</span>
+          <span class="skill-pill">Gestion des habilitations</span>
+          <span class="skill-pill">Veille CVE / SSI</span>
+          <span class="skill-pill">DevSecOps</span>
+          <span class="skill-pill">Sensibilisation SSI</span>
+        </div>
+      </div>
+
+      <div id="skill-dev" class="skills-section dev">
+        <h3 data-i="skills_dev">Développement</h3>
+        <div class="skills-grid">
+          <span class="skill-pill">C / C++</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Node.js</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">HTML / CSS</span>
+          <span class="skill-pill">Arduino IDE</span>
+          <span class="skill-pill">SQLite</span>
+          <span class="skill-pill">MySQL (notions)</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">Architecture événementielle</span>
+          <span class="skill-pill">Développement embarqué</span>
+        </div>
+      </div>
+
+      <div id="skill-sys" class="skills-section sys">
+        <h3 data-i="skills_sys">Systèmes & Réseaux</h3>
+        <div class="skills-grid">
+          <span class="skill-pill">Linux</span>
+          <span class="skill-pill">Windows</span>
+          <span class="skill-pill">TCP/IP</span>
+          <span class="skill-pill">Routage</span>
+          <span class="skill-pill">Modèle OSI</span>
+          <span class="skill-pill">Cisco Packet Tracer</span>
+          <span class="skill-pill">ESP32</span>
+          <span class="skill-pill">Microcontrôleurs</span>
+          <span class="skill-pill">RFID</span>
+        </div>
+      </div>
+
+      <div id="skill-edu" class="skills-section edu">
+        <h3 data-i="skills_edu">Langues</h3>
+        <div class="skills-grid">
+          <span class="skill-pill">Français — natif</span>
+          <span class="skill-pill">Anglais — TOEIC 850/990</span>
+        </div>
+      </div>
+
+      <div id="skill-soft" class="skills-section soft">
+        <h3 data-i="skills_soft">Soft skills</h3>
+        <div class="skills-grid">
+          <span class="skill-pill" data-i="sk_rigor">Rigueur & organisation</span>
+          <span class="skill-pill" data-i="sk_autonomy">Autonomie</span>
+          <span class="skill-pill" data-i="sk_vulga">Vulgarisation technique</span>
+          <span class="skill-pill" data-i="sk_team">Travail en équipe</span>
+          <span class="skill-pill" data-i="sk_lead">Leadership</span>
+          <span class="skill-pill" data-i="sk_curiosity">Curiosité technique</span>
+          <span class="skill-pill" data-i="sk_adapt">Adaptabilité</span>
+          <span class="skill-pill" data-i="sk_doc">Rédaction technique</span>
+          <span class="skill-pill">Agile / Scrum / Kanban</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- TIMELINE -->
+    <div id="timeline" style="background:var(--bg-alt)">
+      <div class="timeline-inner">
+        <p class="section-eyebrow" data-i="timeline_eyebrow">04 — Parcours</p>
+        <h2 class="section-title" data-i="timeline_title">Carte temporelle</h2>
+
+        <div class="tl-legend">
+          <div class="tl-legend-item"><div class="tl-legend-dot" style="background:var(--ink)"></div><span data-i="tl_leg_esiea">Formation ESIEA</span></div>
+          <div class="tl-legend-item"><div class="tl-legend-dot" style="background:var(--c-secu-dot)"></div><span data-i="tl_leg_secu">Sécurité</span></div>
+          <div class="tl-legend-item"><div class="tl-legend-dot" style="background:var(--c-dev-dot)"></div><span data-i="tl_leg_dev">Développement</span></div>
+          <div class="tl-legend-item"><div class="tl-legend-dot" style="background:var(--c-edu-dot)"></div><span data-i="tl_leg_edu">Pédagogie</span></div>
+          <div class="tl-legend-item"><div class="tl-legend-dot" style="background:var(--c-sys-dot)"></div><span data-i="tl_leg_pro">Expérience pro</span></div>
+        </div>
+
+        <div class="tl-graph-wrap" id="tl-graph-wrap"></div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <p class="section-eyebrow" data-i="contact_eyebrow">05 — Contact</p>
+      <p class="contact-intro fade-up" data-i="contact_intro">Une opportunité d'alternance,<br>un projet, une question ?</p>
+      <form class="contact-form fade-up" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-field"><label data-i="form_name">Nom</label><input type="text" required/></div>
+          <div class="form-field"><label>Email</label><input type="email" required/></div>
+        </div>
+        <div class="form-field"><label data-i="form_subject">Sujet</label><input type="text"/></div>
+        <div class="form-field"><label data-i="form_message">Message</label><textarea rows="5" required></textarea></div>
+        <button type="submit" class="btn-send" data-i="form_send">Envoyer →</button>
+        <p id="form-msg" style="font-size:.8rem;color:var(--ink-faint);display:none" data-i="form_success">Message envoyé — merci !</p>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2025 Elouan Thébault</p>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/elouan-thebault" target="_blank">LinkedIn</a>
+        <a href="https://github.com/elouan-thebault" target="_blank">GitHub</a>
+        <a href="mailto:elouan.thebault@esiea.fr">Email</a>
+      </div>
+    </footer>
+
+  </div><!-- /page-main -->
+
+  <!-- ═══════════════════════════════════════════
+       PAGE PROJET DÉTAIL
+  ═══════════════════════════════════════════ -->
+  <div id="page-projet" class="page">
+    <div class="projet-detail-inner">
+      <button class="back-btn" onclick="closeProject()">← <span data-i="back_btn">Retour aux projets</span></button>
+
+      <div id="proj-cat-badge" class="projet-detail-cat"></div>
+      <h1 id="proj-title" class="projet-detail-title"></h1>
+      <p id="proj-date" class="projet-detail-date"></p>
+
+      <div class="projet-detail-img" id="proj-img">
+        <div class="projet-detail-img-placeholder">
+          <div style="font-size:2.5rem;opacity:.25">📷</div>
+          <p data-i="img_placeholder">Ajoute tes captures d'écran ici</p>
+        </div>
+      </div>
+
+      <!-- Mini timeline contextuelle -->
+      <div id="proj-mini-tl" style="margin-bottom:2.5rem"></div>
+      <!-- Contexte texte (gardé pour accessibilité) -->
+      <div style="display:none">
+        <div id="proj-dot" class="dot"></div>
+        <strong id="proj-period"></strong><span id="proj-context"></span>
+      </div>
+
+      <div class="projet-detail-section">
+        <h3 data-i="proj_objective">Objectif</h3>
+        <p id="proj-objective"></p>
+      </div>
+
+      <div class="projet-detail-section">
+        <h3 data-i="proj_what">Ce que j'ai fait</h3>
+        <p id="proj-what"></p>
+      </div>
+
+      <div class="projet-detail-section">
+        <h3 data-i="proj_skills">Compétences démontrées</h3>
+        <p id="proj-skills"></p>
+      </div>
+
+      <div class="projet-detail-section">
+        <h3 data-i="proj_tech">Technologies</h3>
+        <div id="proj-tech" class="tech-pills"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS MODULAIRES
+  ═══════════════════════════════════════════ -->
+  <script src="js/data.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/skills.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

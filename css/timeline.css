@@ -1,0 +1,142 @@
+/* ─────────────────────────────────
+   TIMELINE
+───────────────────────────────── */
+
+#timeline {
+  background: var(--bg-alt);
+  max-width: 100%;
+}
+
+.timeline-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.tl-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.tl-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.tl-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Conteneur SVG + labels */
+.tl-graph-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.tl-graph-svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Labels flottants positionnés en absolu via JS */
+.tl-label {
+  position: absolute;
+  transform: translateY(-50%);
+  cursor: default;
+}
+
+.tl-label.clickable {
+  cursor: pointer;
+}
+
+.tl-label.clickable:hover .tl-label-card {
+  transform: translateX(3px);
+}
+
+.tl-label-card {
+  transition: transform 0.15s;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  max-width: 240px;
+}
+
+.tl-label-date {
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+  opacity: 0.7;
+}
+
+.tl-label-title {
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.tl-label-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+  opacity: 0.85;
+}
+
+.tl-label-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: tl-pulse 1.6s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes tl-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+.tl-label-card.secu {
+  background: var(--c-secu-bg);
+  color: var(--c-secu);
+}
+
+.tl-label-card.dev {
+  background: var(--c-dev-bg);
+  color: var(--c-dev);
+}
+
+.tl-label-card.edu {
+  background: var(--c-edu-bg);
+  color: var(--c-edu);
+}
+
+.tl-label-card.sys {
+  background: var(--c-sys-bg);
+  color: var(--c-sys);
+}
+
+.tl-label-card.esiea {
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}

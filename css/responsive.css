@@ -1,0 +1,45 @@
+/* ─────────────────────────────────
+   RESPONSIVE - TABLETTES ET MOBILES
+───────────────────────────────── */
+
+@media (max-width: 640px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .projet-card {
+    grid-template-columns: auto 1fr;
+  }
+
+  .projet-tag {
+    display: none;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .tl-label-card {
+    max-width: 140px;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .tl-label-title {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .tl-label-card {
+    max-width: 140px;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .tl-label-title {
+    font-size: 0.7rem;
+  }
+}
