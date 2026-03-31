@@ -57,34 +57,49 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
 let keySequence = '';
 let duck = false;
-const targetSequence = 'duck';
+const targetSequence = ['duck', 'kitty'];
+
 let sequenceTimeout;
 
 document.addEventListener('keydown', (event) => {
   const key = event.key.toLowerCase();
+  const heroSub = document.querySelector('.hero-sub');
+  const hero_sub_sub = T[document.documentElement.lang].hero_sub_sub || '';
+  const kitty = document.getElementById('img_placeholder');
   keySequence += key;
   
+  
   // Vérifier si la séquence contient "duck"
-  if (keySequence.includes(targetSequence)) {
-    const heroSub = document.querySelector('.hero-sub');
-    const hero_sub_sub = T[document.documentElement.lang].hero_sub_sub || '';
-    if (heroSub && duck === false) {
-      // Remplacer le lien CSS variables.css par variable_duck.css
-      const styleLink = document.querySelector('link[href="css/variables.css"]');
-      if (styleLink) {
-        styleLink.href = 'css/variable_duck.css';
+  switch (keySequence) {
+    case 'duck':
+      if (heroSub && duck === false) {
+        const styleLink = document.querySelector('link[href="css/variables.css"]');
+        if (styleLink) {
+          styleLink.href = 'css/variable_duck.css';
+        }
+        heroSub.innerHTML += hero_sub_sub;
+        duck = true;
       }
-      heroSub.innerHTML += hero_sub_sub;
-      duck = true;
-    }
-    keySequence = ''; // Reset après succès
-    clearTimeout(sequenceTimeout);
-  } else {
-    // Reset après 2 secondes d'inactivité
-    clearTimeout(sequenceTimeout);
-    sequenceTimeout = setTimeout(() => {
+      keySequence = '';
+      clearTimeout(sequenceTimeout);
+      break;
+    case 'kitty':
+      Object.values(PROJECTS).forEach(proj => {
+        proj.image = 'images/kitty.jpg';
+      });
+      const projImgDiv = document.getElementById('proj-img');
+      if (projImgDiv) {
+        projImgDiv.innerHTML = '<img src="images/kitty.jpg" alt="kitty" style="width:100%;height:100%;object-fit:cover;border-radius:inherit"/>';
+      }
+      keySequence = '';
+      clearTimeout(sequenceTimeout);
+      break;
+    default:
+      clearTimeout(sequenceTimeout);
+      sequenceTimeout = setTimeout(() => {
       keySequence = '';
     }, 2000);
+      break;
   }
 });
 
