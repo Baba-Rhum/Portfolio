@@ -73,10 +73,36 @@ document.addEventListener('keydown', (event) => {
   switch (keySequence) {
     case 'duck':
       if (heroSub && duck === false) {
+        // 1. Charger le CSS
+        const duckStyle = document.createElement('link');
+        duckStyle.rel = 'stylesheet';
+        duckStyle.href = 'css/duck.css';
+        document.head.appendChild(duckStyle);
+
+        // 2. Injecter le canard
+        const duckHTML = `
+          <div class="duck__wrapper">
+            <div class="duck">
+              <div class="duck duck__inner">
+                <div class="duck__mouth"></div>
+                <div class="duck__head">
+                  <div class="duck__eye"></div>
+                  <div class="duck__eye--shadow"></div>
+                  <div class="duck__white"></div>
+                </div>
+                <div class="duck__body"></div>
+                <div class="duck__wing"></div>
+              </div>
+              <div class="duck__foot duck__foot--1"></div>
+              <div class="duck__foot duck__foot--2"></div>
+              <div class="surface"></div>
+            </div>
+          </div>`;
+        document.body.insertAdjacentHTML('beforeend', duckHTML);
+
+        // 3. Reste de ta logique duck
         const styleLink = document.querySelector('link[href="css/variables.css"]');
-        if (styleLink) {
-          styleLink.href = 'css/variable_duck.css';
-        }
+        if (styleLink) styleLink.href = 'css/variable_duck.css';
         heroSub.innerHTML += hero_sub_sub;
         duck = true;
       }
