@@ -110,6 +110,7 @@ const PROJECTS = {
   },
   pairse_expo: {
     cat: 'edu',
+    image: 'images/pairse_expo.jpg',
     fr: {
       catLabel: 'Communication scientifique',
       title: 'PAIRSE — Exposciences 53',
