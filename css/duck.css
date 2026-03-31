@@ -1,3 +1,8 @@
+@keyframes slide-across {
+  from { left: -200px; }
+  to   { left: 100vw; }
+}
+
 :root {
   --color-yellow: #ffed02;
   --color-light-orange-1: #fece00;
@@ -32,10 +37,10 @@
 .duck__wrapper {
   position: fixed;
   bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: -200px;
   z-index: 9999;
   pointer-events: none;
+  animation: slide-across 10s linear forwards;
 }
 
 .duck__head {
@@ -180,7 +185,8 @@
   border-radius: 1rem;
 }
 
-.duck__foot--1, .duck__foot--2 {
+.duck__foot--1,
+.duck__foot--2 {
   left: 40%;
   bottom: 0;
   -webkit-transform: translate(-50%, 80%);

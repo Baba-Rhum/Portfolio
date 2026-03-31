@@ -66,20 +66,30 @@ document.addEventListener('keydown', (event) => {
   const heroSub = document.querySelector('.hero-sub');
   const hero_sub_sub = T[document.documentElement.lang].hero_sub_sub || '';
   const kitty = document.getElementById('img_placeholder');
+  const wrapper = document.querySelector('.duck__wrapper');
+  const duckStyle = document.createElement('link');
   keySequence += key;
   
   
   // Vérifier si la séquence contient "duck"
   switch (keySequence) {
     case 'duck':
-      if (heroSub && duck === false) {
-        // 1. Charger le CSS
-        const duckStyle = document.createElement('link');
-        duckStyle.rel = 'stylesheet';
-        duckStyle.href = 'css/duck.css';
-        document.head.appendChild(duckStyle);
+      if (heroSub) {
+        // ✅ Initialisation unique : thème + CSS duck + texte
+        if (!duck) {
+          const duckStyle = document.createElement('link');
+          duckStyle.rel = 'stylesheet';
+          duckStyle.href = 'css/duck.css';
+          document.head.appendChild(duckStyle);
 
-        // 2. Injecter le canard
+          const styleLink = document.querySelector('link[href="css/variables.css"]');
+          if (styleLink) styleLink.href = 'css/variable_duck.css';
+
+          heroSub.innerHTML += hero_sub_sub;
+          duck = true;
+        }
+
+        // ✅ Spawn d'un canard à chaque appel
         const duckHTML = `
           <div class="duck__wrapper">
             <div class="duck">
@@ -100,11 +110,11 @@ document.addEventListener('keydown', (event) => {
           </div>`;
         document.body.insertAdjacentHTML('beforeend', duckHTML);
 
-        // 3. Reste de ta logique duck
-        const styleLink = document.querySelector('link[href="css/variables.css"]');
-        if (styleLink) styleLink.href = 'css/variable_duck.css';
-        heroSub.innerHTML += hero_sub_sub;
-        duck = true;
+        const wrapper = document.body.lastElementChild;
+        wrapper.style.bottom = `${Math.random() * 60 + 10}vh`;
+        wrapper.style.animationDuration = `${Math.random() * 8 + 5}s`;
+
+        wrapper.addEventListener('animationend', () => wrapper.remove());
       }
       keySequence = '';
       clearTimeout(sequenceTimeout);
