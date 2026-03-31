@@ -52,8 +52,43 @@ const obs = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-/* ═══════════════════════════════════
-   INITIALISATION AU CHARGEMENT
+/* ═══════════════════════════════════   DÉTECTION DE SÉQUENCE DE TOUCHES
+═══════════════════════════════════ */
+
+let keySequence = '';
+let duck = false;
+const targetSequence = 'duck';
+let sequenceTimeout;
+
+document.addEventListener('keydown', (event) => {
+  const key = event.key.toLowerCase();
+  keySequence += key;
+  
+  // Vérifier si la séquence contient "duck"
+  if (keySequence.includes(targetSequence)) {
+    const heroSub = document.querySelector('.hero-sub');
+    const hero_sub_sub = T[document.documentElement.lang].hero_sub_sub || '';
+    if (heroSub && duck === false) {
+      // Remplacer le lien CSS variables.css par variable_duck.css
+      const styleLink = document.querySelector('link[href="css/variables.css"]');
+      if (styleLink) {
+        styleLink.href = 'css/variable_duck.css';
+      }
+      heroSub.innerHTML += hero_sub_sub;
+      duck = true;
+    }
+    keySequence = ''; // Reset après succès
+    clearTimeout(sequenceTimeout);
+  } else {
+    // Reset après 2 secondes d'inactivité
+    clearTimeout(sequenceTimeout);
+    sequenceTimeout = setTimeout(() => {
+      keySequence = '';
+    }, 2000);
+  }
+});
+
+/* ═══════════════════════════════════   INITIALISATION AU CHARGEMENT
 ═══════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {

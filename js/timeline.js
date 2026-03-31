@@ -182,7 +182,7 @@
     esieaLbl.style.width = LABEL_W + 'px';
     const ec = document.createElement('div');
     ec.className = 'tl-label-card esiea';
-    ec.innerHTML = `<div class="tl-label-date">${lang === 'fr' ? 'Rentrée 2024' : 'Autumn 2024'}</div>` + `<div class="tl-label-title">${lang === 'fr' ? 'Entrée ESIEA · Spé. Cybersécurité' : 'ESIEA · Cybersecurity track'}</div>`;
+    ec.innerHTML = `<div class="tl-label-date">${lang === 'fr' ? 'Rentrée 2024' : 'Autumn 2024'}</div>` + `<div class="tl-label-title">${lang === 'fr' ? 'Entrée ESIEA' : 'ESIEA'}</div>`;
     esieaLbl.appendChild(ec);
     wrap.appendChild(esieaLbl);
   }

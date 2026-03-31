@@ -1,0 +1,125 @@
+/* ─────────────────────────────────
+   VARIABLES GLOBALES
+───────────────────────────────── */
+
+:root {
+  /* Couleurs principales — Thème Canard Jaune Vif */
+  --ink: #3d2817;
+  --ink-soft: #6b5d4f;
+  --ink-faint: #9d8b79;
+  --bg: #fffef5;
+  --bg-alt: #fff8d9;
+  --line: #ffe680;
+
+  /* Polices */
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+
+  /* Dimensions */
+  --max: 760px;
+
+  /* Catégories de couleurs — Variations Jaune Or Vif */
+  --c-secu: #b8860b;
+  --c-secu-bg: #fff9e6;
+  --c-secu-dot: #ffc107;
+
+  --c-dev: #d4a017;
+  --c-dev-bg: #fffacc;
+  --c-dev-dot: #ffd700;
+
+  --c-sys: #cc7000;
+  --c-sys-bg: #fffbe0;
+  --c-sys-dot: #ffb300;
+
+  --c-edu: #ffaa00;
+  --c-edu-bg: #fffce0;
+  --c-edu-dot: #ffda03;
+
+  --c-soft: #f0ad4e;
+  --c-soft-bg: #fffef0;
+  --c-soft-dot: #ffd700;
+}
+
+/* ─────────────────────────────────
+   RESET ET BASE
+───────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─────────────────────────────────
+   UTILITIES
+───────────────────────────────── */
+
+section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--line);
+}
+
+.section-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+/* ─────────────────────────────────
+   PAGES
+───────────────────────────────── */
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* ─────────────────────────────────
+   ANIMATIONS
+───────────────────────────────── */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

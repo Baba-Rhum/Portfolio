@@ -47,9 +47,11 @@ function openProject(id) {
   const techEl = document.getElementById('proj-tech');
   techEl.innerHTML = d.tech.map(t => `<span class="tech-pill">${t}</span>`).join('');
 
-  // Image du projet
+  // Image du projet ou Genially
   const imgDiv = document.getElementById('proj-img');
-  if (p.image) {
+  if (p.genially) {
+    imgDiv.innerHTML = `<iframe src="${p.genially}" allowFullScreen="true" frameborder="0" width="100%" height="500" style="border:none;border-radius:8px;"></iframe>`;
+  } else if (p.image) {
     imgDiv.innerHTML = `<img src="${p.image}" alt="${d.title}" class="projet-detail-image">`;
   } else {
     imgDiv.innerHTML = `<div class="projet-detail-img-placeholder">

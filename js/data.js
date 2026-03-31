@@ -84,6 +84,7 @@ const PROJECTS = {
   pairse_mbot: {
     cat: 'edu',
     image: 'images/pairsec.jpg',
+    genially: 'https://view.genially.com/6786611d6afaf917a51085b1',
     fr: {
       catLabel: 'Pédagogie & Leadership',
       title: 'PAIRSE — Intervention en collège',
@@ -192,12 +193,12 @@ const PROJ_MILESTONES = {
   rfid: {
     cat: 'secu',
     ongoing: true,
-    start: { y: 2026, m: 2 },
+    start: { y: 2026, m: 1},
     end: null,
     steps: [
-      { y: 2026, m: 2, fr: 'Câblage & premier test RFID', en: 'Wiring & first RFID test' },
-      { y: 2026, m: 3, fr: 'Firmware ESP32 — lecture badge', en: 'ESP32 firmware — badge reading' },
-      { y: 2026, m: 3, fr: 'Serveur web embarqué & logs', en: 'Embedded web server & logs' },
+      { y: 2026, m: 1, fr: 'Câblage & premier test RFID', en: 'Wiring & first RFID test' },
+      { y: 2026, m: 1.75, fr: 'Firmware ESP32 — lecture badge', en: 'ESP32 firmware — badge reading' },
+      { y: 2026, m: 2.5, fr: 'Serveur web embarqué & logs', en: 'Embedded web server & logs' },
       { y: 2026, m: 3, fr: 'Interface admin — en cours', en: 'Admin interface — ongoing' },
     ]
   },
@@ -217,36 +218,36 @@ const PROJ_MILESTONES = {
     cat: 'dev',
     ongoing: false,
     start: { y: 2025, m: 1 },
-    end: { y: 2025, m: 1 },
+    end: { y: 2025, m: 2 },
     steps: [
       { y: 2025, m: 1, fr: 'Initialisation SDL2 & structure', en: 'SDL2 init & structure' },
-      { y: 2025, m: 1, fr: 'Gameplay & sprites', en: 'Gameplay & sprites' },
-      { y: 2025, m: 1, fr: 'Génération procédurale & son', en: 'Procedural generation & sound' },
-      { y: 2025, m: 1, fr: 'Rendu final — partiel', en: 'Final build — exam' },
+      { y: 2025, m: 1.25, fr: 'Gameplay & sprites', en: 'Gameplay & sprites' },
+      { y: 2025, m: 1.5, fr: 'Génération procédurale & son', en: 'Procedural generation & sound' },
+      { y: 2025, m: 1.75, fr: 'Rendu final — partiel', en: 'Final build — exam' },
     ]
   },
   jeu2: {
     cat: 'dev',
     ongoing: false,
     start: { y: 2025, m: 6 },
-    end: { y: 2025, m: 6 },
+    end: { y: 2025, m: 7 },
     steps: [
       { y: 2025, m: 6, fr: 'Conception architecture sans basecode', en: 'Architecture design — no basecode' },
-      { y: 2025, m: 6, fr: 'Implémentation hash map', en: 'Hash map implementation' },
-      { y: 2025, m: 6, fr: 'Intégration arbres de recherche', en: 'Search tree integration' },
-      { y: 2025, m: 6, fr: 'Rendu final — partiel', en: 'Final build — exam' },
+      { y: 2025, m: 6.25, fr: 'Implémentation hash map', en: 'Hash map implementation' },
+      { y: 2025, m: 6.5, fr: 'Intégration arbres de recherche', en: 'Search tree integration' },
+      { y: 2025, m: 6.75, fr: 'Rendu final — partiel', en: 'Final build — exam' },
     ]
   },
   jeu3: {
     cat: 'dev',
     ongoing: false,
     start: { y: 2026, m: 1 },
-    end: { y: 2026, m: 1 },
+    end: { y: 2026, m: 2 },
     steps: [
       { y: 2026, m: 1, fr: 'Conception architecture sans basecode', en: 'Architecture design — no basecode' },
-      { y: 2026, m: 1, fr: 'Hash map & optimisations', en: 'Hash map & optimisations' },
-      { y: 2026, m: 1, fr: 'Arbres BST — logique de jeu', en: 'BST trees — game logic' },
-      { y: 2026, m: 1, fr: 'Rendu final — partiel', en: 'Final build — exam' },
+      { y: 2026, m: 1.25, fr: 'Hash map & optimisations', en: 'Hash map & optimisations' },
+      { y: 2026, m: 1.5, fr: 'Arbres BST — logique de jeu', en: 'BST trees — game logic' },
+      { y: 2026, m: 1.75, fr: 'Rendu final — partiel', en: 'Final build — exam' },
     ]
   },
   pairse_mbot: {
@@ -269,7 +270,7 @@ const PROJ_MILESTONES = {
     end: { y: 2026, m: 6 },
     steps: [
       { y: 2025, m: 10, fr: 'Lancement & coordination équipe', en: 'Launch & team coordination' },
-      { y: 2025, m: 12, fr: 'Relations partenaires', en: 'Partner relations' },
+      { y: 2025, m: 12, fr: 'Relations partenaires & engagement étudiant', en: 'Partner relations & student engagement' },
       { y: 2026, m: 2, fr: 'Communication scientifique', en: 'Science communication' },
       { y: 2026, m: 6, fr: 'Exposciences — en cours', en: 'Exposciences — ongoing' },
     ]

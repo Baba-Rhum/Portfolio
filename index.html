@@ -52,7 +52,7 @@
     <section id="hero">
       <p class="hero-label" data-i="hero_label">Portfolio · Cybersécurité · 2025</p>
       <h1 class="hero-title">Elouan Thébault<br><em data-i="hero_subtitle">Étudiant ingénieur</em></h1>
-      <p class="hero-sub" data-i="hero_sub">Spécialisation cybersécurité à l'ESIEA Laval. Je conçois des systèmes sécurisés, de l'embarqué au web — et je cherche une alternance pour 2026–2027.</p>
+      <p class="hero-sub" data-i="hero_sub"></p>
       <div class="hero-tags">
         <a class="hero-tag skill-cat-btn-trigger" href="#competences" data-cat="secu" onclick="showPage('main');setTimeout(()=>openSkillCat('secu'),400);return false" data-i="tag_secu">Cybersécurité</a>
         <a class="hero-tag skill-cat-btn-trigger" href="#competences" data-cat="sys" onclick="showPage('main');setTimeout(()=>openSkillCat('sys'),400);return false" data-i="tag_sys">Systèmes embarqués</a>
@@ -81,7 +81,7 @@
           <dt data-i="about_english_label">Anglais</dt><dd>TOEIC 850/990 — <span data-i="about_english_level">niveau professionnel</span></dd>
           <dt data-i="about_location_label">Localisation</dt><dd data-i="about_location_val">France · Permis B + véhicule</dd>
           <dt>Email</dt><dd><a href="mailto:elouan.thebault@esiea.fr">elouan.thebault@esiea.fr</a></dd>
-          <dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/elouan-thebault" target="_blank">linkedin.com/in/elouan-thebault</a></dd>
+          <dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/elouan-thebault" target="_blank" rel="noopener noreferrer">linkedin.com/in/elouan-thebault</a></dd>
         </dl>
       </div>
     </section>
@@ -260,11 +260,11 @@
       <p class="contact-intro fade-up" data-i="contact_intro">Une opportunité d'alternance,<br>un projet, une question ?</p>
       <form class="contact-form fade-up" onsubmit="handleSubmit(event)">
         <div class="form-row">
-          <div class="form-field"><label data-i="form_name">Nom</label><input type="text" required/></div>
-          <div class="form-field"><label>Email</label><input type="email" required/></div>
+          <div class="form-field"><label data-i="form_name">Nom</label><input type="text" placeholder="Votre nom" required/></div>
+          <div class="form-field"><label data-i="form_email">Email</label><input type="email" placeholder="votre.email@exemple.com" required/></div>
         </div>
-        <div class="form-field"><label data-i="form_subject">Sujet</label><input type="text"/></div>
-        <div class="form-field"><label data-i="form_message">Message</label><textarea rows="5" required></textarea></div>
+        <div class="form-field"><label data-i="form_subject">Sujet</label><input type="text" placeholder="Objet du message"/></div>
+        <div class="form-field"><label data-i="form_message">Message</label><textarea rows="5" placeholder="Votre message..." required></textarea></div>
         <button type="submit" class="btn-send" data-i="form_send">Envoyer →</button>
         <p id="form-msg" style="font-size:.8rem;color:var(--ink-faint);display:none" data-i="form_success">Message envoyé — merci !</p>
       </form>
@@ -273,8 +273,8 @@
     <footer>
       <p>© 2025 Elouan Thébault</p>
       <div class="footer-links">
-        <a href="https://linkedin.com/in/elouan-thebault" target="_blank">LinkedIn</a>
-        <a href="https://github.com/elouan-thebault" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/elouan-thebault" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/elouan-thebault" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="mailto:elouan.thebault@esiea.fr">Email</a>
       </div>
     </footer>
