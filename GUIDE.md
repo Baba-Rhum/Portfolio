@@ -52,7 +52,7 @@ const PROJECTS = {
     fr: {
       catLabel: 'Développement',
       title: 'Mon Projet',
-      date: '2025',
+      date: '2026',
       // ... autres champs (objective, what, skills, tech)
     },
     en: {

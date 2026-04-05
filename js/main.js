@@ -1,5 +1,7 @@
 /* ═══════════════════════════════════
-   INITIALISATION GÉNÉRALE
+   LANGUE
+   (currentPage / showPage / scrollToSection → navigation.js)
+   (renderProjects / openProject            → projects.js)
 ═══════════════════════════════════ */
 
 function setLang(lang) {
@@ -7,35 +9,38 @@ function setLang(lang) {
   document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   const t = T[lang];
+
   document.querySelectorAll('[data-i]').forEach(el => {
     const k = el.getAttribute('data-i');
     if (t[k] !== undefined) el.innerHTML = t[k];
   });
-  // Si on est sur une page projet, mettre à jour le contenu
+
+  document.querySelectorAll('[data-ph]').forEach(el => {
+    const k = el.getAttribute('data-ph');
+    if (t[k] !== undefined) el.placeholder = t[k];
+  });
+
+  renderProjects();
+
   if (currentPage === 'projet') {
     const projId = document.getElementById('proj-title').dataset.projId;
     if (projId) openProject(projId);
   }
+
   if (window._buildGraph) window._buildGraph();
 }
 
 /* ═══════════════════════════════════
-   GESTION DU FORMULAIRE DE CONTACT
+   FORMULAIRE CONTACT
 ═══════════════════════════════════ */
 
 function handleSubmit(event) {
   event.preventDefault();
-  const form = event.target;
+  const form    = event.target;
   const formMsg = document.getElementById('form-msg');
-  
-  // Ici, vous pouvez ajouter la logique pour envoyer le formulaire
-  // Pour l'instant, on affiche juste un message de succès
   formMsg.style.display = 'block';
   form.reset();
-  
-  setTimeout(() => {
-    formMsg.style.display = 'none';
-  }, 3000);
+  setTimeout(() => { formMsg.style.display = 'none'; }, 3000);
 }
 
 /* ═══════════════════════════════════
@@ -44,42 +49,31 @@ function handleSubmit(event) {
 
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-    }
+    if (e.isIntersecting) e.target.classList.add('visible');
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-/* ═══════════════════════════════════   DÉTECTION DE SÉQUENCE DE TOUCHES
+/* ═══════════════════════════════════
+   EASTER EGG — DUCK 🦆
 ═══════════════════════════════════ */
 
-let keySequence = '';
-let duck = false;
-const targetSequence = ['duck', 'kitty'];
-
+let keySequence    = '';
+let duck           = false;
 let sequenceTimeout;
 
 document.addEventListener('keydown', (event) => {
-  const key = event.key.toLowerCase();
-  const heroSub = document.querySelector('.hero-sub');
+  const key          = event.key.toLowerCase();
+  const heroSub      = document.querySelector('.hero-sub');
   const hero_sub_sub = T[document.documentElement.lang].hero_sub_sub || '';
-  const kitty = document.getElementById('img_placeholder');
-  const wrapper = document.querySelector('.duck__wrapper');
-  const duckStyle = document.createElement('link');
-  keySequence += key;
-  
-  
-  // Vérifier si la séquence contient "duck"
+  keySequence       += key;
+
   switch (keySequence) {
     case 'duck':
       if (heroSub) {
-        // ✅ Initialisation unique : thème + CSS duck + texte
         if (!duck) {
           const duckStyle = document.createElement('link');
-          duckStyle.rel = 'stylesheet';
-          duckStyle.href = 'css/duck.css';
+          duckStyle.rel   = 'stylesheet';
+          duckStyle.href  = 'css/duck.css';
           document.head.appendChild(duckStyle);
 
           const styleLink = document.querySelector('link[href="css/variables.css"]');
@@ -89,7 +83,6 @@ document.addEventListener('keydown', (event) => {
           duck = true;
         }
 
-        // ✅ Spawn d'un canard à chaque appel
         const duckHTML = `
           <div class="duck__wrapper">
             <div class="duck">
@@ -109,20 +102,17 @@ document.addEventListener('keydown', (event) => {
             </div>
           </div>`;
         document.body.insertAdjacentHTML('beforeend', duckHTML);
-
         const wrapper = document.body.lastElementChild;
-        wrapper.style.bottom = `${Math.random() * 60 + 10}vh`;
+        wrapper.style.bottom            = `${Math.random() * 60 + 10}vh`;
         wrapper.style.animationDuration = `${Math.random() * 8 + 5}s`;
-
         wrapper.addEventListener('animationend', () => wrapper.remove());
       }
       keySequence = '';
       clearTimeout(sequenceTimeout);
       break;
+
     case 'kitty':
-      Object.values(PROJECTS).forEach(proj => {
-        proj.image = 'images/kitty.jpg';
-      });
+      Object.values(PROJECTS).forEach(proj => { proj.meta.image = 'images/kitty.jpg'; });
       const projImgDiv = document.getElementById('proj-img');
       if (projImgDiv) {
         projImgDiv.innerHTML = '<img src="images/kitty.jpg" alt="kitty" style="width:100%;height:100%;object-fit:cover;border-radius:inherit"/>';
@@ -130,18 +120,19 @@ document.addEventListener('keydown', (event) => {
       keySequence = '';
       clearTimeout(sequenceTimeout);
       break;
+
     default:
       clearTimeout(sequenceTimeout);
-      sequenceTimeout = setTimeout(() => {
-      keySequence = '';
-    }, 2000);
+      sequenceTimeout = setTimeout(() => { keySequence = ''; }, 2000);
       break;
   }
 });
 
-/* ═══════════════════════════════════   INITIALISATION AU CHARGEMENT
+/* ═══════════════════════════════════
+   INIT
 ═══════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
   setLang('fr');
 });
